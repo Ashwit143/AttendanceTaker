@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Registers</title>
+</head>
+
+<body>
+
+    <h1>My Registers</h1>
+
+    <% if(registers.length===0){ %>
+
+        <h3>No Registers Found</h3>
+
+        <% } else { %>
+
+            <% registers.forEach(register=> { %>
+
+                <div style="border:1px solid black; padding:10px; margin:10px;">
+
+                    <h3>
+                        <%= register.subject %>
+                    </h3>
+
+                    <p>
+                        <strong>Section:</strong>
+                        <%= register.section %>
+                    </p>
+
+                    <p>
+                        <strong>Excel File:</strong>
+                        <%= register.excelFile %>
+                    </p>
+
+                    <p>
+                        <strong>Register ID:</strong>
+                        <%= register._id %>
+                    </p>
+
+                    <a href="/generate/<%= register._id %>">
+                        Generate QR
+                    </a>
+                </div>
+
+                <% }) %>
+
+                    <% } %>
+
+                        <br>
+
+                        <a href="/registers/new">
+                            Create New Register
+                        </a>
+
+</body>
+
+</html>

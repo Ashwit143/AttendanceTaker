@@ -1,0 +1,29 @@
+ .container {
+        position: absolute;
+        left: 40%;
+        top: 25%;
+    }
+
+    img {
+        height: 20rem;
+        width: 20rem;
+    }
+
+    p {
+        font-size: 30px;
+    }
+
+    button {
+        padding: 0.5rem;
+        margin-left: 5rem;
+        border-radius: 5px;
+        background-color: #d9bc99;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+    #countdown{
+        color : red;
+    }

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container {
+        position: absolute;
+        left: 40%;
+        top: 25%;
+    }
+
+    img {
+        height: 20rem;
+        width: 20rem;
+    }
+
+    p {
+        font-size: 30px;
+    }
+
+    button {
+        padding: 0.5rem;
+        margin-left: 5rem;
+        border-radius: 5px;
+        background-color: #d9bc99;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+    #countdown{
+        color : red;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1>QR Code (valid for 15s)</h1>
+        <img src="<%= qrImage %>" />
+        <p>Scan this QR to mark attendance</p>
+        <button><a href="http://192.168.1.6:3001/generate">Re-Generate QR code</a></button>
+        <p id="countdown">QR Code will expire in 15s</p>
+    </div>
+    
+</body>
+<script>
+    let timeLeft = 15;
+    const countdownEl = document.getElementById("countdown");
+    const submitBtn = document.getElementById("submitBtn");
+    const form = document.getElementById("attendanceForm");
+
+    const timer = setInterval(() => {
+      timeLeft--;
+      countdownEl.textContent = `QR Code will expire in ${timeLeft}s`;
+      
+      if (timeLeft <= 0) {
+        clearInterval(timer);
+        countdownEl.textContent = "❌ QR Code Expired";
+        submitBtn.disabled = true;
+        form.querySelectorAll("input").forEach(input => input.disabled = true);
+      }
+    }, 1000);
+  </script>
+</html>
