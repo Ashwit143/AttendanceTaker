@@ -159,6 +159,65 @@ AttendanceTaker
 * Deployment on Render/Railway
 * Mobile-Friendly UI
 
+## Architecture
+
+This project follows the MVC (Model-View-Controller) architecture pattern to maintain clean separation of concerns and improve scalability.
+
+### Models
+
+Responsible for database structure and interactions.
+
+* Professor Model
+* Register Model
+* QRCode Model
+
+### Views
+
+Built using EJS templates for rendering user interfaces.
+
+* Login Page
+* Registration Page
+* Dashboard
+* Register Management
+* QR Generation
+* Attendance Form
+* Success Page
+
+### Controllers
+
+Handle incoming requests and coordinate application logic.
+
+* Auth Controller
+* Register Controller
+* Attendance Controller
+* Service Controller
+
+### Routes
+
+Define API endpoints and map them to controllers.
+
+* Auth Routes
+* Register Routes
+* Attendance Routes
+* Service Routes
+
+### Middleware
+
+Handles cross-cutting concerns.
+
+* Authentication Middleware
+* Cookie Parsing
+* File Upload Handling
+
+### Services
+
+Contains business logic separated from controllers.
+
+* Attendance Service (Excel processing and attendance marking)
+
+This structure improves maintainability, readability, and scalability while following industry-standard backend development practices.
+
+
 ## Author
 
 **Uduthala Ashwit**
