@@ -33,4 +33,4 @@ mongoose.connect(process.env.MONGO_URI)
 
 
 // Start server
-app.listen(PORT,"192.168.1.6", () => console.log("Server started"));
+app.listen(PORT,"192.168.1.10", () => console.log("Server started"));

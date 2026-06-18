@@ -18,7 +18,7 @@ const generateQR = async (req, res) => {
         const token = uuidv4();
         await new QRModel({ token, registerId }).save();
 
-        const url = `http://192.168.1.6:3001/form/${token}`;
+        const url = `http://192.168.1.10:3001/form/${token}`;
         const qrImage = await QRCode.toDataURL(url);
 
         res.render("generate", { qrImage });
