@@ -2,45 +2,75 @@
 <html>
 <head>
     <title>Professor Registration</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
 
-    <h1>Professor Registration</h1>
+<div class="login-wrapper">
 
-    <form action="/register" method="POST">
+    <div class="login-left">
 
-        <input
-            type="text"
-            name="name"
-            placeholder="Enter Name"
-            required
+        <div class="brand">
+            Attendance Taker
+        </div>
+
+        <h1>
+            Create Account
+        </h1>
+
+        <p>
+            Register as a Professor to manage attendance records
+        </p>
+
+        <form action="/register" method="POST">
+
+            <input
+                type="text"
+                name="name"
+                placeholder="Enter Full Name"
+                required
+            >
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Enter Email"
+                required
+            >
+
+            <input
+                type="password"
+                name="password"
+                placeholder="Create Password"
+                required
+            >
+
+            <button type="submit">
+                Register
+            </button>
+
+        </form>
+
+        <div class="signup-link">
+            Already have an account?
+            <a href="/login">
+                Login
+            </a>
+        </div>
+
+    </div>
+
+    <div class="login-right">
+
+        <img
+            src="/images/login.png"
+            alt="Attendance Illustration"
         >
 
-        <br><br>
+    </div>
 
-        <input
-            type="email"
-            name="email"
-            placeholder="Enter Email"
-            required
-        >
-
-        <br><br>
-
-        <input
-            type="password"
-            name="password"
-            placeholder="Enter Password"
-            required
-        >
-
-        <br><br>
-
-        <button type="submit">
-            Register
-        </button>
-
-    </form>
+</div>
 
 </body>
 </html>

@@ -1,40 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
 
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        a {
-            text-decoration: none;
-            color: black;
-        }
+    <title>Attendance Taker</title>
 
-        button {
-            position: absolute;
-            left: 40%;
-            top: 30%;
-            background-color: #ffb703;
-            border-radius: 5px;
-            padding : 1rem;
-            border : none;
-        }
-    </style>
+```
+<link rel="stylesheet" href="/css/index.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+```
+
 </head>
-
 <body>
-    <h1>Attendance Taker</h1>
 
-<a href="/register">
-    Register as Professor
-</a>
+```
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="logo">
+        Attendance Taker
+    </div>
+
+    <div class="nav-links">
+        <a href="/login" class="btn-outline">
+            Login
+        </a>
+
+        <a href="/register" class="btn-primary">
+            Get Started
+        </a>
+    </div>
+</nav>
+<br><br>
+
+<!-- Hero Section -->
+<section class="hero">
+
+    <div class="hero-left">
+
+        <h1>
+            Modern Attendance
+            Management Using
+            QR Codes
+        </h1>
+
+        <p>
+            Automate classroom attendance with secure QR codes,
+            Excel integration, authentication, and professor dashboards.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="/register" class="btn-primary">
+                Register as Professor
+            </a>
+
+            <a href="/login" class="btn-outline">
+                Login
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="hero-right">
+
+        <img
+            src="/images/hero.svg"
+            alt="Attendance Illustration"
+        >
+
+    </div>
+
+</section>
 
 <br><br>
 
-<a href="/login">
-    Login
-</a>
-</body>
+<!-- Features -->
+<section class="features">
 
+    <h2>Features</h2>
+
+    <div class="feature-grid">
+
+        <div class="feature-card">
+            <h3>📱 QR Attendance</h3>
+            <p>
+                Generate secure attendance QR codes with automatic expiry.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <h3>📊 Excel Integration</h3>
+            <p>
+                Upload student registers and automatically mark attendance.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <h3>🔒 Authentication</h3>
+            <p>
+                Secure professor accounts using JWT and cookies.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <h3>⚡ Fast & Efficient</h3>
+            <p>
+                Complete attendance in seconds without manual roll calls.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<br><br>
+
+<!-- How It Works -->
+<section class="workflow">
+
+    <h2>How It Works</h2>
+
+    <div class="steps">
+
+        <div class="step">
+            <span>1</span>
+            <p>Upload Student Register</p>
+        </div>
+
+        <div class="step">
+            <span>2</span>
+            <p>Generate QR Code</p>
+        </div>
+
+        <div class="step">
+            <span>3</span>
+            <p>Students Scan QR</p>
+        </div>
+
+        <div class="step">
+            <span>4</span>
+            <p>Attendance Recorded</p>
+        </div>
+
+    </div>
+
+</section>
+
+<br><br>
+
+<!-- Footer -->
+<footer>
+
+    <h3>Attendance Taker</h3>
+
+    <p>
+        QR-Based Attendance Management System
+    </p>
+
+    <p>
+        Built using Node.js, Express.js, MongoDB Atlas, JWT, EJS and XLSX.
+    </p>
+
+</footer>
+```
+
+</body>
 </html>

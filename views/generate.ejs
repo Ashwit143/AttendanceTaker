@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<style>
+<link rel="stylesheet" href="/css/style.css">
+<!-- <style>
     .container {
         position: absolute;
         left: 40%;
@@ -36,14 +37,14 @@
     #countdown{
         color : red;
     }
-</style>
+</style> -->
 
 <body>
     <div class="container">
         <h1>QR Code (valid for 15s)</h1>
         <img src="<%= qrImage %>" />
         <p>Scan this QR to mark attendance</p>
-        <button><a href="http://192.168.1.10:3001/generate">Re-Generate QR code</a></button>
+        <button class="btn"><a href="http://192.168.1.7:3001/generate">Re-Generate QR code</a></button>
         <p id="countdown">QR Code will expire in 15s</p>
     </div>
     

@@ -5,55 +5,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Registers</title>
+
+    <link rel="stylesheet" href="/css/registers.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
 </head>
 
 <body>
 
-    <h1>My Registers</h1>
+    <div class="registers-header">
+
+        <div class="header-left">
+
+            <h1>My Registers</h1>
+
+            <p>
+                Manage attendance registers and generate
+                attendance QR sessions.
+            </p>
+
+        </div>
+
+        <a href="/registers/new" class="new-register-btn">
+            + New Register
+        </a>
+
+    </div>
 
     <% if(registers.length===0){ %>
 
-        <h3>No Registers Found</h3>
+        <div class="empty-state">
+
+            <div class="empty-icon">
+                📚
+            </div>
+
+            <h2>No Registers Yet</h2>
+
+            <p>
+                Create your first attendance register to start
+                managing classroom attendance.
+            </p>
+
+            <a href="/registers/new" class="create-btn">
+                Create Register
+            </a>
+
+        </div>
 
         <% } else { %>
 
-            <% registers.forEach(register=> { %>
+            <div class="register-grid">
 
-                <div style="border:1px solid black; padding:10px; margin:10px;">
+                <% registers.forEach((register,index)=>{ %>
 
-                    <h3>
-                        <%= register.subject %>
-                    </h3>
+                    <div class="register-card <%= index % 2 === 0 ? 'dark' : 'light' %>">
 
-                    <p>
-                        <strong>Section:</strong>
-                        <%= register.section %>
-                    </p>
+                        <div>
 
-                    <p>
-                        <strong>Excel File:</strong>
-                        <%= register.excelFile %>
-                    </p>
+                            <p class="card-label">
+                                SECTION <%= register.section %>
+                            </p>
 
-                    <p>
-                        <strong>Register ID:</strong>
-                        <%= register._id %>
-                    </p>
+                            <h2 class="card-title">
+                                <%= register.subject %>
+                            </h2>
 
-                    <a href="/generate/<%= register._id %>">
-                        Generate QR
-                    </a>
-                </div>
+                            <p class="card-description">
+                                Generate attendance sessions and manage records.
+                            </p>
 
-                <% }) %>
+                        </div>
 
-                    <% } %>
-
-                        <br>
-
-                        <a href="/registers/new">
-                            Create New Register
+                        <a href="/generate/<%= register._id %>" class="generate-btn">
+                            Generate QR →
                         </a>
+
+                    </div>
+
+                    <% }) %>
+
+            </div>
+
+            <% } %>
 
 </body>
 

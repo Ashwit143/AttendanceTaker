@@ -17,6 +17,7 @@ const attendanceRoutes = require("./Routes/attendanceRoutes");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
+app.use(express.static("public"));
 
 app.use(authRoutes);
 app.use(registerRoutes);
@@ -26,6 +27,7 @@ app.use(attendanceRoutes);
 app.set("view engine", "ejs");
 app.set("views", path.resolve("./views"));
 
+
 // MongoDB connection
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected"))
@@ -33,4 +35,4 @@ mongoose.connect(process.env.MONGO_URI)
 
 
 // Start server
-app.listen(PORT,"192.168.1.10", () => console.log("Server started"));
+app.listen(PORT,"192.168.1.7", () => console.log("Server started"));
