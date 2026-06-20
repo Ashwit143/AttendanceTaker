@@ -23,6 +23,8 @@ const generateQR = async (req, res) => {
         const url = `${BASE_URL}/form/${token}`;
         const qrImage = await QRCode.toDataURL(url);
 
+        console.log(process.env.BASE_URL);
+
         res.render("generate", { qrImage });
     } catch (err) {
         console.error(err);
