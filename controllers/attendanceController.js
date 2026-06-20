@@ -4,6 +4,8 @@ const { markPresent } = require("../services/attendanceServices");
 const QRCode = require("qrcode");
 const { v4: uuidv4 } = require("uuid");
 
+const BASE_URL = process.env.BASE_URL;
+
 const generateQR = async (req, res) => {
     const { registerId } = req.params;
     try {
@@ -18,7 +20,7 @@ const generateQR = async (req, res) => {
         const token = uuidv4();
         await new QRModel({ token, registerId }).save();
 
-        const url = `http://192.168.1.7:3001/form/${token}`;
+        const url = `${BASE_URL}/form/${token}`;
         const qrImage = await QRCode.toDataURL(url);
 
         res.render("generate", { qrImage });
@@ -30,13 +32,18 @@ const generateQR = async (req, res) => {
 
 const form = async (req, res) => {
     const { token } = req.params;
+
+    if(req.cookies[`attendance_${token}`]){
+    return res.send(
+        "Attendance already submitted from this device"
+    );
+}
+
     const record = await QRModel.findOne({ token });
 
-    if (!record) return res.send("<h1 style='color:red;'>❌ Invalid or Expired QR Code</h1>");
 
-    if (record.used) {
-        return res.send("QR Already Used");
-    };
+
+    if (!record) return res.send("<h1 style='color:red;'>❌ Invalid or Expired QR Code</h1>");
 
     const now = Date.now();
     const age =
@@ -60,7 +67,7 @@ const submit = async (req, res) => {
     const record = await QRModel.findOne({ token });
     if (!record) return res.send("<h1 style='color:red;'>❌ Invalid or Expired QR Code</h1>");
 
-    
+
 
     const register =
         await Register.findById(
@@ -75,16 +82,22 @@ const submit = async (req, res) => {
     record.studentName = studentName;
     record.rollNo = rollNo;
 
-    
-    
-
     // Mark present in student list Excel
     const success = markPresent(studentName, rollNo, register.excelFile);
     if (!success) return res.send("<h1 style='color:red;'>❌ Student not in list!</h1>");
 
-    record.used = true;
     await record.save();
 
+    res.cookie(
+        `attendance_${token}`,
+        true,
+        {
+            maxAge: 15 * 1000
+        }
+    );
+
     res.redirect(`/success?name=${studentName}&rollNo=${rollNo}`);
+
+    
 }
 module.exports = { generateQR, form, submit };

@@ -17,11 +17,7 @@ const qrSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Register",
         required: true
-    },
-    used: {
-    type: Boolean,
-    default: false
-}
+    }
 });
 
 module.exports = mongoose.model("QRCode", qrSchema);

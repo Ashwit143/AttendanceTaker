@@ -8,6 +8,7 @@ const app = express();
 require("dotenv").config();
 const PORT = process.env.PORT || 3001;
 
+
 const authRoutes = require("./Routes/authRoutes");
 const registerRoutes = require("./Routes/registerRoutes");
 const serviceRoutes = require("./Routes/serviceRoutes");
@@ -35,4 +36,4 @@ mongoose.connect(process.env.MONGO_URI)
 
 
 // Start server
-app.listen(PORT,"192.168.1.7", () => console.log("Server started"));
+app.listen(PORT,() => console.log("Server started"));
