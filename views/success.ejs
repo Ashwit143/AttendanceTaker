@@ -1,35 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Success</title>
-  <link rel="stylesheet" href="/css/style.css">
-  <!-- <style>
-      h1{
-    position : absolute;
-    left : 40%;
-    top : 30%;
-}
-    #name{
-    margin-top : 1rem;
-    position: absolute;
-    left : 40%;
-    top: 35%;
-}
-#rollNo{
-    margin-top : 1rem;
-    position: absolute;
-    left : 40%;
-    top: 39%;
-}
-  </style> -->
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Attendance Recorded</title>
+
+    <link rel="stylesheet"
+          href="/css/success.css">
+
 </head>
+
 <body>
-  <div class="container">
-    <h1 style="color:green;">Attendance Marked Successfully!</h1>
-    <p id="name">Name: <%= name %></p>
-    <br>
-    <p id="rollNo">Roll No: <%= rollNo %></p>
-  </div>
+
+<div class="success-container">
+
+    <div class="success-card">
+
+        <div class="success-icon">
+
+            ✓
+
+        </div>
+
+        <h1>
+            Attendance Marked
+        </h1>
+
+        <p class="success-message">
+
+            Thank you,
+            <strong><%= name %></strong>.
+
+            Your attendance has been recorded
+            successfully.
+
+        </p>
+
+        <div class="student-details">
+
+            <p>
+
+                Roll Number
+
+            </p>
+
+            <h3>
+
+                <%= rollNo %>
+
+            </h3>
+
+        </div>
+
+        <button
+            onclick="window.close()">
+
+            You may close this page
+
+        </button>
+
+    </div>
+
+</div>
+
 </body>
+
 </html>

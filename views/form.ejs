@@ -1,94 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Attendance Form</title>
-  <link rel="stylesheet" href="/css/style.css">
-  <!-- <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background-color: #f7f7f7;
-      padding-top: 50px;
-    }
-    h1 {
-      color: #333;
-      margin-bottom: 20px;
-    }
-    .form-container {
-      display: inline-block;
-      background: #fff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      animation: fadeIn 1s ease-in-out;
-    }
-    input {
-      padding: 10px;
-      margin: 10px 0;
-      width: 250px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 14px;
-    }
-    button {
-      padding: 12px 30px;
-      border: none;
-      border-radius: 6px;
-      background-color: #28a745;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    button:hover:not(:disabled) {
-      background-color: #218838;
-    }
-    button:disabled {
-      background-color: #ccc;
-      cursor: not-allowed;
-    }
-    #countdown {
-      font-size: 18px;
-      margin-top: 15px;
-      color: red;
-      font-weight: bold;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style> -->
+  <link rel="stylesheet" href="/css/form.css">
 </head>
+
 <body>
-  <h1>Mark Your Attendance</h1>
-  
-  <div class="form-container">
-    <form id="attendanceForm" action="/submit/<%= token %>" method="POST">
-      <input type="text" name="studentName" placeholder="Enter your name" required /><br/>
-      <input type="number" name="rollNo" placeholder="Enter your roll number" required /><br/>
-      <button type="submit" id="submitBtn">Submit Attendance</button>
-    </form>
-    <p id="countdown">QR Code will expire in 15s</p>
+  <div class="attendance-container">
+
+    <div class="attendance-card">
+
+      <div class="attendance-header">
+
+        <h1>
+          Attendance Form
+        </h1>
+
+        <p>
+          Fill in your details to mark attendance.
+        </p>
+
+      </div>
+
+      <p id="countdown" class="session-status">
+        ⚡ Session Active • <%= remainingTime %>s remaining
+      </p>
+
+      <form id="attendanceForm" action="/submit/<%= token %>" method="POST">
+
+        <div class="input-group">
+
+          <label>
+            Student Name
+          </label>
+
+          <input type="text" name="studentName" placeholder="Enter your name" required>
+
+        </div>
+
+        <div class="input-group">
+
+          <label>
+            Roll Number
+          </label>
+
+          <input type="number" name="rollNo" placeholder="Enter roll number" required>
+
+        </div>
+
+        <button id="submitBtn" type="submit">
+
+          Mark Attendance
+
+        </button>
+
+      </form>
+
+    </div>
+
+
+
   </div>
 
+
   <script>
-    let timeLeft = 15;
-    const countdownEl = document.getElementById("countdown");
-    const submitBtn = document.getElementById("submitBtn");
-    const form = document.getElementById("attendanceForm");
+
+
+    let timeLeft = <%= remainingTime %> -1;
+
+    const countdownEl =
+      document.getElementById("countdown");
+
+    const submitBtn =
+      document.getElementById("submitBtn");
+
+    const form =
+      document.getElementById("attendanceForm");
 
     const timer = setInterval(() => {
+
       timeLeft--;
-      countdownEl.textContent = `QR Code will expire in ${timeLeft}s`;
-      
+
+      countdownEl.innerHTML =
+        `⚡ Session Active • ${timeLeft}s remaining`;
+
       if (timeLeft <= 0) {
+
         clearInterval(timer);
-        countdownEl.textContent = "❌ QR Code Expired";
+
+        countdownEl.innerHTML =
+          "❌ Session Expired";
+
         submitBtn.disabled = true;
-        form.querySelectorAll("input").forEach(input => input.disabled = true);
+
+        form
+          .querySelectorAll("input")
+          .forEach(input => {
+
+            input.disabled = true;
+
+          });
+
       }
+
     }, 1000);
+
   </script>
 </body>
+
 </html>

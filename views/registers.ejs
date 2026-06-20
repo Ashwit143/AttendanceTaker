@@ -78,9 +78,13 @@
 
                         </div>
 
-                        <a href="/generate/<%= register._id %>" class="generate-btn">
-                            Generate QR →
-                        </a>
+                        <form action="/generate/<%= register._id %>" method="POST">
+
+                            <button type="submit">
+                                Generate QR
+                            </button>
+
+                        </form>
 
                     </div>
 

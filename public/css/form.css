@@ -1,0 +1,255 @@
+.attendance-container{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #f8fafc,
+        #eef2ff
+    );
+}
+
+.attendance-card{
+
+    width:100%;
+    max-width:450px;
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:24px;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.08);
+}
+
+.attendance-header{
+
+    text-align:center;
+
+    margin-bottom:30px;
+}
+
+.attendance-header h1{
+
+    margin-bottom:10px;
+
+    color:#0f172a;
+}
+
+.attendance-header p{
+
+    color:#64748b;
+}
+
+.input-group{
+
+    margin-bottom:20px;
+}
+
+.input-group label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+}
+
+.input-group input{
+
+    width:100%;
+
+    padding:14px;
+
+    border:1px solid #dbeafe;
+
+    border-radius:12px;
+
+    font-size:16px;
+}
+
+.input-group input:focus{
+
+    outline:none;
+
+    border-color:#2563eb;
+}
+
+.attendance-card button{
+
+    width:100%;
+
+    border:none;
+
+    padding:15px;
+
+    background:#2563eb;
+
+    color:white;
+
+    border-radius:12px;
+
+    font-size:16px;
+
+    font-weight:600;
+}
+
+#countdown{
+
+    text-align:center;
+
+    background:#dbeafe;
+
+    color:#2563eb;
+
+    padding:12px 20px;
+
+    border-radius:12px;
+
+    margin-bottom:20px;
+
+    font-weight:600;
+}
+
+#submitBtn:disabled{
+
+    background:#94a3b8;
+
+    cursor:not-allowed;
+}
+
+.session-status{
+
+    text-align:center;
+
+    background:#dbeafe;
+
+    color:#2563eb;
+
+    padding:12px;
+
+    border-radius:12px;
+
+    margin-bottom:20px;
+
+    font-weight:600;
+}
+
+button:disabled{
+
+    background:#94a3b8;
+
+    cursor:not-allowed;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 768px){
+
+    .attendance-card{
+
+        padding:25px;
+    }
+
+    .attendance-header h1{
+
+        font-size:2rem;
+    }
+
+    .attendance-header p{
+
+        font-size:0.95rem;
+    }
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 480px){
+
+    .attendance-container{
+
+        padding:15px;
+    }
+
+    .attendance-card{
+
+        width:100%;
+
+        padding:20px;
+
+        border-radius:18px;
+    }
+
+    .attendance-header h1{
+
+        font-size:1.8rem;
+    }
+
+    .attendance-header p{
+
+        font-size:0.9rem;
+    }
+
+    .input-group label{
+
+        font-size:0.95rem;
+    }
+
+    .input-group input{
+
+        padding:12px;
+
+        font-size:15px;
+    }
+
+    .attendance-card button{
+
+        padding:14px;
+
+        font-size:15px;
+    }
+
+}
+
+/* =========================
+   VERY SMALL DEVICES
+========================= */
+
+@media (max-width: 350px){
+
+    .attendance-card{
+
+        padding:15px;
+    }
+
+    .attendance-header h1{
+
+        font-size:1.5rem;
+    }
+
+    .attendance-header p{
+
+        font-size:0.85rem;
+    }
+
+    .input-group input{
+
+        font-size:14px;
+    }
+
+}

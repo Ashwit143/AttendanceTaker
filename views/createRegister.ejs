@@ -1,51 +1,111 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
     <title>Create Register</title>
-    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet"
+        href="/css/registers.css">
+
 </head>
+
 <body>
 
-    <h1>Create Register</h1>
+<div class="create-container">
 
-    <form
-        action="/registers/new"
-        method="POST"
-        enctype="multipart/form-data"
-    >
+    <div class="create-card">
 
-        <input
-            type="text"
-            name="section"
-            placeholder="Section"
-            required
-        >
+        <div class="create-left">
 
-        <br><br>
+            <img
+                src="/images/create-register.svg"
+                alt="Create Register">
 
-        <input
-            type="text"
-            name="subject"
-            placeholder="Subject"
-            required
-        >
+        </div>
 
-        <br><br>
+        <div class="create-right">
 
-        <input
-            type="file"
-            name="excelFile"
-            accept=".xlsx,.xls"
-            required
-        >
+            <div class="form-header">
 
-        <br><br>
+                <h1>Create Register</h1>
 
-        <button type="submit" class="btn">
-            Create Register
-        </button>
+                <p>
+                    Create a new attendance register
+                    and upload your student list.
+                </p>
 
-    </form>
+            </div>
+
+            <form
+                action="/registers/new"
+                method="POST"
+                enctype="multipart/form-data"
+            >
+
+                <div class="input-group">
+
+                    <label>
+                        Subject
+                    </label>
+
+                    <input
+                        type="text"
+                        name="subject"
+                        placeholder="Enter Subject"
+                        required>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>
+                        Section
+                    </label>
+
+                    <input
+                        type="text"
+                        name="section"
+                        placeholder="Enter Section"
+                        required>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>
+                        Student Register
+                    </label>
+
+                    <input
+                        type="file"
+                        name="excelFile"
+                        accept=".xlsx,.xls"
+                        required>
+
+                </div>
+
+                <button
+                    class="create-btn"
+                    type="submit">
+
+                    Create Register
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
 
 </body>
+
 </html>
